@@ -1,0 +1,26 @@
+html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinite Web Browser</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="browser">
+    <div class="browser-bar">
+      <div class="controls">
+        <button class="control-btn" onclick="goBack()">←</button>
+        <button class="control-btn">→</button>
+        <button class="control-btn">↻</button>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="urlInput" placeholder="Search or enter URL...">
+      </div>
+    </div>
+    <div class="content-area" id="contentArea">
+      <!-- Generated websites will appear here -->
+    </div>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

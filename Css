@@ -1,0 +1,445 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: url('maxresdefault.jpg') center/cover fixed;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.browser {
+  width: 90vw;
+  height: 90vh;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.browser-bar {
+  background: rgba(245, 245, 245, 0.95);
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid rgba(221, 221, 221, 0.5);
+}
+
+.controls {
+  display: flex;
+  gap: 5px;
+}
+
+.control-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.control-btn:hover {
+  background: #eee;
+}
+
+.search-bar {
+  flex-grow: 1;
+}
+
+#urlInput {
+  width: 100%;
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  outline: none;
+  font-size: 14px;
+}
+
+.content-area {
+  content-visibility: auto;
+  contain: content;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background: transparent;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.website-card {
+  will-change: transform;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(221, 221, 221, 0.5);
+  border-radius: 8px;
+  padding: 15px;
+  transition: all 0.3s;
+  backdrop-filter: blur(5px);
+}
+
+.website-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(139, 92, 246, 0.3);
+}
+
+.website-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.website-content {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.website-image {
+  width: 100%;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.welcome-screen {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  margin: 20px;
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem;
+  height: calc(100% - 40px);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.logo h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+}
+
+.welcome-text {
+  font-size: 1.5rem;
+  color: #4a4a4a;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.example-searches {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.example-searches p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.search-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.example-tag {
+  background: rgba(243, 244, 246, 0.9);
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  color: #4b5563;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.example-tag:hover {
+  background: rgba(229, 231, 235, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 15px rgba(99, 102, 241, 0.2);
+}
+
+.generated-website {
+  transform: translateZ(0);
+  padding: 0;
+  max-width: none;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.generated-website header {
+  width: 100%;
+  padding: 4rem 2rem !important;
+  text-align: center;
+}
+
+.generated-website section {
+  padding: 4rem 2rem;
+  width: 100%;
+}
+
+.generated-website h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.generated-website h2 {
+  font-size: 2rem;
+  margin: 2rem 0 1rem;
+}
+
+.generated-website h3 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.generated-website p {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.generated-website img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.generated-website button {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  font-weight: 500;
+}
+
+.generated-website .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.generated-website .game-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.generated-website .interactive-element {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.generated-website .interactive-element:hover {
+  transform: scale(1.05);
+}
+
+.generated-website .game-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.generated-website .game-score {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.generated-website canvas {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.generated-website .interactive-section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.back-button {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  padding: 15px 30px !important;
+  font-size: 1.1rem !important;
+  z-index: 1000;
+}
+
+.generated-website nav {
+  width: 100%;
+  padding: 1rem 2rem;
+}
+
+.generated-website nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.generated-website nav a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.generated-website .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.generated-website .flex {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.generated-website .card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.generated-website .card:hover {
+  transform: translateY(-5px);
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  color: white;
+}
+
+.loading-spinner {
+  will-change: transform;
+  width: 80px;
+  height: 80px;
+  border: 8px solid #6366f1;
+  border-top: 8px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+.loading-screen h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+.loading-screen::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+  animation: pulse 2s infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate3d(0, 0, 1, 0deg); }
+  100% { transform: rotate3d(0, 0, 1, 360deg); }
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.back-button:active {
+  transform: translateY(1px);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.5); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+@media (max-width: 768px) {
+  .generated-website section {
+    padding: 3rem 1rem;
+  }
+  
+  .generated-website h1 {
+    font-size: 2rem;
+  }
+  
+  .generated-website .flex {
+    flex-direction: column;
+  }
+  
+  .back-button {
+    top: 20px;
+    left: 20px;
+    padding: 12px 24px !important;
+    font-size: 1rem !important;
+  }
+}

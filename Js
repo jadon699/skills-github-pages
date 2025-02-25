@@ -1,0 +1,10 @@
+          <span class="example-tag">pet sanctuary</span>
+          <span class="example-tag">art gallery</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Initialize
+showWelcomeScreen();
